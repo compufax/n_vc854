@@ -1,0 +1,12 @@
+assets_portal/
+dompdf/
+cfdi/
+css/
+fpdf/
+img/
+nusoap/
+PHPExcel/
+phpqrcode/
+scss/
+tcpdf/
+vendor/
