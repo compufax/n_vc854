@@ -1,8 +1,7 @@
 <?php
-date_default_timezone_set('America/Mexico_City');
+require_once("cnx_db.php");
 require_once("nusoap/nusoap.php");
 set_time_limit(0);
-$base='enero_aaz';
 $namespace = "http://https://puebla.2ai.io//huellaservices";
 // create a new soap server
 $server = new soap_server();
@@ -561,7 +560,7 @@ function RegistraChecada($usuario, $password, $lector, $operador, $tipo = 0)
 function ConectarDB()
 {
 	$msg="OK";
-	if (!$MySQL=@mysql_connect('mysql', 'vc854', 'skYYoung73')) {
+	/*if (!$MySQL=@mysql_connect('mysql', 'vc854', 'skYYoung73')) {
 	   $t=time();
 	   while (time()<$t+5) {}
 	   if (!$MySQL=@mysql_connect('mysql', 'vc854', 'skYYoung73')) {
@@ -577,13 +576,13 @@ function ConectarDB()
 
 	$base='vc854';
 	mysql_select_db($base);
-	mysql_query("SET time_zone = CST6CDT;");
+	mysql_query("SET time_zone = CST6CDT;");*/
 	return $msg;
 }
 // Get our posted data if the service is being consumed
 // otherwise leave this data blank.                
-$POST_DATA = isset($GLOBALS['HTTP_RAW_POST_DATA']) 
-? $GLOBALS['HTTP_RAW_POST_DATA'] : '';
+$POST_DATA = (file_get_contents('php://input') != '') 
+? file_get_contents('php://input') : '';
 
 // pass our posted data (or nothing) to the soap service                    
 $server->service($POST_DATA);
