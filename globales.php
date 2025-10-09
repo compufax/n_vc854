@@ -1,6 +1,6 @@
 <?php
 $NOMBRE = "Verificacion VC854";
-$array_nosi = ['No', 'Sí'];
+$array_nosi = ['No', 'Sï¿½'];
 
 
 $array_modulos = array(
@@ -172,10 +172,10 @@ function getRealIP()
                :
                "unknown" );
 
-      // los proxys van añadiendo al final de esta cabecera
+      // los proxys van aï¿½adiendo al final de esta cabecera
       // las direcciones ip que van "ocultando". Para localizar la ip real
       // del usuario se comienza a mirar por el principio hasta encontrar
-      // una dirección ip que no sea del rango privado. En caso de no
+      // una direcciï¿½n ip que no sea del rango privado. En caso de no
       // encontrarse ninguna se toma como valor el REMOTE_ADDR
 
       $entries = preg_split('[, ]', $_SERVER['HTTP_X_FORWARDED_FOR']);
@@ -489,7 +489,7 @@ function validar_timbres($plaza){
 
 
 function fecha_letra($fecha){
-   $fecven=split("-",$fecha);
+   $fecven=explode("-",$fecha);
    $fecha_letra=$fecven[2]." de ";;
    switch($fecven[1]){
       case "01":$fecha_letra.="Enero";break;
