@@ -1975,7 +1975,7 @@ if($_POST['cmd']==101){
 		if($row['tipo_venta']==1){
 			$texto.='USTED POR ESTE TICKS NO PAGO||Y  NO SE PODRA FACTURAR||SI LE COBRARON FAVOR DE REPORTAR||AL GERENTE DEL CENTRO|';
 		}
-		$resPlaza = mysql_query("SELECT numero,nombre,bloqueada_sat,domicilioticket FROM plazas WHERE cve='{$row['plaza']}'");
+		$resPlaza = mysql_query("SELECT numero,nombre,bloqueada_sat FROM plazas WHERE cve='{$row['plaza']}'");
 		$rowPlaza = mysql_fetch_array($resPlaza);
 		$resPlaza2 = mysql_query("SELECT rfc FROM datosempresas WHERE plaza='{$row['plaza']}'");
 		$rowPlaza2 = mysql_fetch_array($resPlaza2);

@@ -818,9 +818,9 @@ if($_POST['cmd']==101){
 			'printer' => 'impresoratermica',
 			'url' => $url_impresion.'/pagos_caja.php?cmd=101&cveplaza='.$_POST['cveplaza'].'&cvepago='.$_POST['reg']
 		);
+		$impresion='<iframe src="http://localhost:8020/?'.http_build_query($variables).'" width=200 height=200></iframe>';
 	}
 	else{
-		$impresion='<iframe src="http://localhost:8020/?'.http_build_query($variables).'" width=200 height=200></iframe>';
 		require_once("numlet.php");
 		$res=mysql_query("SELECT * FROM pagos_caja WHERE plaza='{$_POST['cveplaza']}' AND cve='{$_POST['reg']}'");
 		$row=mysql_fetch_array($res);
