@@ -1135,12 +1135,12 @@ if($_POST['cmd']==10){
 	$activos = $row1['activos'];
 	$cancelados = $row1['cancelados'];
 	$sin_entrega = $row1['sin_entrega'];
-	$row1 = mysql_fetch_assoc(mysql_query("SELECT SUM(a.monto) as importe FROM pagos_caja a{$where} AND a.estatus!='C' AND a.forma_pago=1"));
+	$row1 = mysql_fetch_assoc(mysql_query("SELECT SUM(a.monto) as importe FROM pagos_caja a{$where1} AND a.estatus!='C' AND a.forma_pago=1"));
 	$efectivo+=$row1['importe'];
 
-	$row1 = mysql_fetch_assoc(mysql_query("SELECT SUM(a.devolucion) as importe FROM devolucion_certificado a{$where} AND a.estatus!='C'"));
+	$row1 = mysql_fetch_assoc(mysql_query("SELECT SUM(a.devolucion) as importe FROM devolucion_certificado a{$where1} AND a.estatus!='C'"));
 	$efectivo-=$row1['importe'];
-	$row1 = mysql_fetch_assoc(mysql_query("SELECT SUM(a.monto) as importe FROM desglose_dinero a{$where} AND a.estatus!='C'"));
+	$row1 = mysql_fetch_assoc(mysql_query("SELECT SUM(a.monto) as importe FROM desglose_dinero a{$where1} AND a.estatus!='C'"));
 	$efectivo-=$row1['importe'];
 
 	$res = mysql_query("SELECT COUNT(a.cve) as registros, SUM(IF(a.estatus!='C'{$condicionmonto}, a.monto, 0)) as monto, SUM(IF(a.estatus!='C'{$condicionmonto}, a.copias*a.costo_copias, 0)) as copias, SUM(IF(a.estatus!='C'{$condicionmonto}, a.monto+a.copias*a.costo_copias, 0)) as total FROM cobro_engomado a {$where}");
