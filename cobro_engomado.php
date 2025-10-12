@@ -600,7 +600,7 @@ if($_POST['cmd']==33){
 
 	mysql_query("UPDATE cobro_engomado SET estatus='C', usucan='{$_POST['cveusuario']}', fechacan=NOW(), obscan='{$_POST['motivocancelacion']}' WHERE plaza='{$_POST['cveplaza']}' AND cve='{$_POST['ticket']}'");
 	mysql_query("UPDATE vale_cortesia_acumulado SET estatus='C', usucan='{$_POST['cveusuario']}', fechacan=NOW() WHERE plaza={$_POST['cveplaza']} AND ticket={$_POST['ticket']}");
-	$row = mysql_fetch_assoc(mysql_query("SELECT vales_pago_anticipado, codigo_cortesia FROM cobro_engomado WHERE plaza='{$_POST['cveplaza']}' AND cve='{$_POST['ticket']}'"));
+	$row = mysql_fetch_assoc(mysql_query("SELECT vale_pago_anticipado, codigo_cortesia FROM cobro_engomado WHERE plaza='{$_POST['cveplaza']}' AND cve='{$_POST['ticket']}'"));
 	if($row['vale_pago_anticipado']!= '' || $row['codigo_cortesia'] != '') {
 		if($row['vale_pago_anticipado'] != ''){
 			$vale = $row['vale_pago_anticipado'];
