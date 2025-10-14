@@ -143,7 +143,7 @@ if($_POST['cmd']==10){
 		//$row = convertir_a_utf8($row);
 		$resultado['data'][] = array(
 			utf8_encode($row['numero_cliente']),
-			utf8_encode($row['nombre']),
+			($row['nombre']),
 			utf8_encode($row['nomtipo']),
 			utf8_encode($row['nomestatus']),
 			'<span class="btn btn-circle btn-info" style="cursor:pointer;"><i class="fas fa-edit" onClick="atcr(\'depositantes_contado.php\',\'\',1,'.$row['cve'].')" title="Editar"></i></span>'.$extras,
