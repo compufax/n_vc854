@@ -140,7 +140,7 @@ if($_POST['cmd']==10){
 	$res = mysql_query("SELECT cve, numero_cliente, nombre, IF(agencia=1, 'Agencia', 'Taller') as nomtipo, IF(estatus=0,'Activo','Inactivo') as nomestatus FROM depositantes{$where}{$orderby} LIMIT {$_POST['start']},{$_POST['length']}");
 	$tmonto = 0;
 	while($row = mysql_fetch_assoc($res)){
-		$row = convertir_a_utf8($row);
+		//$row = convertir_a_utf8($row);
 		$resultado['data'][] = array(
 			utf8_encode($row['numero_cliente']),
 			utf8_encode($row['nombre']),
