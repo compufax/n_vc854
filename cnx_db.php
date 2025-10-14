@@ -1,4 +1,6 @@
 <?php
+mb_internal_encoding("ISO-8859-1");   // Codificación interna
+mb_http_output("ISO-8859-1");
 error_reporting(E_ERROR | E_PARSE);
 /*$zona_horaria = file_get_contents('https://pendientes.hgaribay.com/zonahoraria.txt');
 date_default_timezone_set ($zona_horaria);
