@@ -54,9 +54,9 @@ function convertir_post_utf8(&$POST){
    }
 }
 
-if(isset($_POST) and is_array($_POST)){
+/*if(isset($_POST) and is_array($_POST)){
    convertir_post_utf8($_POST);
-}
+}*/
 
 function convertir_a_utf8($arreglo) {
    foreach($arreglo as &$valor) {
