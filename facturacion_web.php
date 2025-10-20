@@ -956,11 +956,7 @@ if($_POST['cmd']==2){
 	$res = mysql_query("SELECT * FROM cobro_engomado WHERE plaza='".$plaza."' AND cve IN (".$tickets.") AND estatus!='C' AND (factura=0 OR notacredito>0)");
 	if($row=mysql_fetch_array($res)){
 		$forma_pago = 0;
-		/*if($row['fecha'] < date('Y-m-d')){ 
-			$tipo_pago = 4;
-			$forma_pago = 1;
-		}
-		else*/if($row['tipo_pago']==5) $tipo_pago=7;
+		if($row['tipo_pago']==5) $tipo_pago=7;
 		elseif($row['tipo_pago']==7) $tipo_pago=9;
 		elseif($row['tipo_pago']==6) $tipo_pago=$_POST['tipo_pago'];
 		else $tipo_pago=1;

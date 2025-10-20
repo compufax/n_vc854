@@ -142,7 +142,7 @@ if($_POST['cmd']==10){
 	while($row = mysql_fetch_assoc($res)){
 
 		$resultado['data'][] = array(
-			utf8_encode($row['nombre']),
+			($row['nombre']),
 			utf8_encode($row['rfc']),
 			utf8_encode($row['codigopostal']),
 			utf8_encode($row['email']),
@@ -179,7 +179,7 @@ if($_POST['cmd']==1){
 				<div class="form-row">
 					<div class="form-group col-sm-9">
 						<label for="nombre">Nombre</label>
-			            <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $row['nombre'];?>" >
+			            <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo utf8_decode($row['nombre']);?>" >
 			        </div>
 			        <div class="form-group col-sm-3">
 						<label for="rfc">RFC</label>
@@ -274,10 +274,10 @@ if($_POST['cmd']==2){
 		}	
 		
 		if($_POST['reg']>0){
-			mysql_query("UPDATE clientes SET nombre='".addslashes($_POST['nombre'])."', rfc='{$_POST['rfc']}'{$campos} WHERE cve = '{$_POST['reg']}'");
+			mysql_query("UPDATE clientes SET nombre='".addslashes(utf8_encode($_POST['nombre']))."', rfc='{$_POST['rfc']}'{$campos} WHERE cve = '{$_POST['reg']}'");
 		}
 		else{
-			mysql_query("INSERT clientes SET plaza='{$_POST['cveplaza']}', usuario='{$_POST['cveusuario']}', fechayhora=NOW(), nombre='".addslashes($_POST['nombre'])."', rfc='{$_POST['rfc']}'{$campos}");
+			mysql_query("INSERT clientes SET plaza='{$_POST['cveplaza']}', usuario='{$_POST['cveusuario']}', fechayhora=NOW(), nombre='".addslashes(utf8_encode($_POST['nombre']))."', rfc='{$_POST['rfc']}'{$campos}");
 			$proveedor_id = mysql_insert_id($MySQL);
 		}
 
