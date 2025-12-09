@@ -137,7 +137,7 @@ if($_POST['cmd']==10){
 		$totales = array();
 		$i = 0;
 		foreach($res as $k=>$row){
-			if($k!=19){
+			//if($k!=19){
 	?>
 			    <tr>
 			      <td align="left"><?php echo $row['nombre'];?></td>
@@ -160,7 +160,7 @@ if($_POST['cmd']==10){
 				$totales[5]+=$row['utilizados_costo'];
 				$totales[6]+=$row['final'];
 				$totales[7]+=$row['final_costo'];
-			}
+			//}
 		}
 	?>
 		<tr>
